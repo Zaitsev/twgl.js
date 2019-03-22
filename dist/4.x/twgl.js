@@ -2378,6 +2378,7 @@ function loadShader(gl, shaderSource, shaderType, opt_errorCallback) {
 
 function getProgramOptions(opt_attribs, opt_locations, opt_errorCallback) {
   var transformFeedbackVaryings;
+  var transformFeedbackMode;
 
   if (typeof opt_locations === 'function') {
     opt_errorCallback = opt_locations;
@@ -2398,11 +2399,13 @@ function getProgramOptions(opt_attribs, opt_locations, opt_errorCallback) {
     opt_errorCallback = opt.errorCallback;
     opt_attribs = opt.attribLocations;
     transformFeedbackVaryings = opt.transformFeedbackVaryings;
+    transformFeedbackMode = opt.transformFeedbackMode;
   }
 
   var options = {
     errorCallback: opt_errorCallback || error,
-    transformFeedbackVaryings: transformFeedbackVaryings
+    transformFeedbackVaryings: transformFeedbackVaryings,
+    transformFeedbackMode: transformFeedbackMode
   };
 
   if (opt_attribs) {
